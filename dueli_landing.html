@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dueli - منصة التنافس الحضاري</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#333;overflow-x:hidden}
+        body[dir="ltr"]{font-family:'Inter','Segoe UI',sans-serif}
+        .header{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);padding:20px 0;box-shadow:0 4px 20px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .nav{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:2.5em;font-weight:bold;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .language-switcher{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+        .lang-btn{padding:10px 20px;background:transparent;border:2px solid #667eea;border-radius:25px;color:#667eea;cursor:pointer;font-weight:bold;transition:all 0.3s ease;font-size:0.95em}
+        .lang-btn:hover{background:#667eea;color:white;transform:scale(1.05)}
+        .lang-btn.active{background:#667eea;color:white}
+        .hero{padding:100px 20px;text-align:center;color:white}
+        .hero h1{font-size:3.5em;margin-bottom:20px;animation:fadeInDown 1s ease}
+        .hero p{font-size:1.5em;margin-bottom:40px;animation:fadeInUp 1s ease;line-height:1.8}
+        .cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+        .btn{padding:18px 40px;font-size:1.2em;border:none;border-radius:50px;cursor:pointer;transition:all 0.3s ease;font-weight:bold}
+        .btn-primary{background:white;color:#667eea;box-shadow:0 8px 25px rgba(0,0,0,0.2)}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,0.3)}
+        .btn-secondary{background:transparent;color:white;border:2px solid white}
+        .btn-secondary:hover{background:white;color:#667eea;transform:translateY(-3px)}
+        .features{background:white;padding:80px 20px}
+        .section-title{text-align:center;font-size:2.5em;margin-bottom:60px;color:#333}
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+        .feature-card{background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);padding:40px;border-radius:20px;text-align:center;transition:all 0.3s ease;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+        .feature-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(0,0,0,0.2)}
+        .feature-icon{font-size:3em;margin-bottom:20px}
+        .feature-card h3{font-size:1.8em;margin-bottom:15px;color:#667eea}
+        .feature-card p{font-size:1.1em;line-height:1.6;color:#555}
+        .categories{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:80px 20px;color:white}
+        .category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+        .category-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);padding:30px;border-radius:15px;border:2px solid rgba(255,255,255,0.2);transition:all 0.3s ease}
+        .category-card:hover{background:rgba(255,255,255,0.2);transform:scale(1.05)}
+        .category-card h3{font-size:1.8em;margin-bottom:15px}
+        .how-it-works{background:#f8f9fa;padding:80px 20px}
+        .steps{display:flex;flex-direction:column;gap:40px;max-width:800px;margin:0 auto}
+        .step{display:flex;align-items:center;gap:30px;background:white;padding:30px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+        .step-number{font-size:3em;font-weight:bold;color:#667eea;min-width:80px}
+        .step-content h3{font-size:1.5em;margin-bottom:10px;color:#333}
+        .call-to-action{background:linear-gradient(135deg,#764ba2 0%,#667eea 100%);padding:100px 20px;text-align:center;color:white}
+        .call-to-action h2{font-size:3em;margin-bottom:30px}
+        .call-to-action p{font-size:1.3em;margin-bottom:40px;line-height:1.8}
+        .footer{background:#2d3748;color:white;padding:40px 20px;text-align:center}
+        @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @media(max-width:768px){.hero h1{font-size:2.5em}.hero p{font-size:1.2em}.step{flex-direction:column;text-align:center}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">⚔️ Dueli</div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ar">العربية</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="t1">منصة التنافس الحضاري</h1>
+            <p id="t2">حوّل شغفك إلى منافسة، وحوّل النزاعات إلى حوار<br>منصة مفتوحة المصدر تجمع العالم في تنافس بنّاء</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('support').scrollIntoView({behavior:'smooth'})" id="t3">ادعم المشروع</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})" id="t4">كيف يعمل؟</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" id="t5">لماذا Dueli؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 id="t6">تواصل عبر التنافس</h3>
+                    <p id="t7">ليس عبر دائرة التعارف، بل عبر المنافسة النزيهة في المجالات التي تحبها</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 id="t8">اربح من موهبتك</h3>
+                    <p id="t9">80% من أرباح الإعلانات تُوزع على المتنافسين حسب تقييم الجمهور</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 id="t10">عالمية ومفتوحة</h3>
+                    <p id="t11">منصة مفتوحة المصدر، متعددة اللغات، تعمل في جميع الدول</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3 id="t12">بث حي وتسجيل</h3>
+                    <p id="t13">منافسات حية مع كاميرا وصوت ومشاركة شاشة، مع حفظ التسجيلات</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3 id="t14">تقييم الجمهور</h3>
+                    <p id="t15">المشاهدون المسجلون يقيّمون ويعلّقون ويدعمون المتنافسين</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3 id="t16">بدون قيود</h3>
+                    <p id="t17">أنت من يضع قوانين المنافسة، لا قيود قنوات تلفزيونية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title" id="t18">أقسام المنافسات</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3 id="t19">💬 قسم الحوار</h3>
+                    <p id="t20">حوارات الأديان والمذاهب والأيديولوجيات السياسية والأنظمة الاقتصادية وقضايا الساعة والنزاعات الأخرى</p>
+                </div>
+                <div class="category-card">
+                    <h3 id="t21">🔬 قسم العلوم</h3>
+                    <p id="t22">مناقشة النظريات العلمية، مشاركة الجمهور في العلم، فرصة للعلماء المغمورين</p>
+                </div>
+                <div class="category-card">
+                    <h3 id="t23">🎭 قسم المواهب</h3>
+                    <p id="t24">المواهب البدنية والصوتية والنفسية والرياضية - فرصة لكل موهوب ليُرى</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <h2 class="section-title" id="t25">كيف يعمل Dueli؟</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 id="t26">أنشئ منافستك</h3>
+                        <p id="t27">اختر القسم والمجال، ضع قوانين المنافسة الخاصة بك</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 id="t28">ادعُ منافساً</h3>
+                        <p id="t29">ابحث عن المتنافسين في مجالك وأرسل دعوة، أو انتظر من يقبل تحديك</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 id="t30">تنافس مباشرة</h3>
+                        <p id="t31">افتح الكاميرا والصوت، شارك شاشتك، والجمهور يشاهد ويقيّم</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 id="t32">اربح من أدائك</h3>
+                        <p id="t33">حصتك من الأرباح تُحدد بناءً على تقييم الجمهور لأدائك</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action" id="support">
+        <div class="container">
+            <h2 id="t34">انضم إلى الثورة</h2>
+            <p id="t35">Dueli مشروع مفتوح المصدر يحتاج إلى دعمك<br>سواء كنت مطوراً، داعماً مادياً، أو مجرد مؤمن بالفكرة</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" id="t36">ساهم في التطوير</button>
+                <button class="btn btn-secondary" id="t37">تبرع للمشروع</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p id="t38">© 2024 Dueli - منصة التنافس الحضاري | مفتوحة المصدر | غير ربحية</p>
+            <p style="margin-top:15px;opacity:0.8" id="t39">نسبة الإدارة: 20% | نسبة المتنافسين: 80%</p>
+        </div>
+    </footer>
+
+    <script>
+        const l={ar:["منصة التنافس الحضاري","حوّل شغفك إلى منافسة، وحوّل النزاعات إلى حوار<br>منصة مفتوحة المصدر تجمع العالم في تنافس بنّاء","ادعم المشروع","كيف يعمل؟","لماذا Dueli؟","تواصل عبر التنافس","ليس عبر دائرة التعارف، بل عبر المنافسة النزيهة في المجالات التي تحبها","اربح من موهبتك","80% من أرباح الإعلانات تُوزع على المتنافسين حسب تقييم الجمهور","عالمية ومفتوحة","منصة مفتوحة المصدر، متعددة اللغات، تعمل في جميع الدول","بث حي وتسجيل","منافسات حية مع كاميرا وصوت ومشاركة شاشة، مع حفظ التسجيلات","تقييم الجمهور","المشاهدون المسجلون يقيّمون ويعلّقون ويدعمون المتنافسين","بدون قيود","أنت من يضع قوانين المنافسة، لا قيود قنوات تلفزيونية","أقسام المنافسات","💬 قسم الحوار","حوارات الأديان والمذاهب والأيديولوجيات السياسية والأنظمة الاقتصادية وقضايا الساعة والنزاعات الأخرى","🔬 قسم العلوم","مناقشة النظريات العلمية، مشاركة الجمهور في العلم، فرصة للعلماء المغمورين","🎭 قسم المواهب","المواهب البدنية والصوتية والنفسية والرياضية - فرصة لكل موهوب ليُرى","كيف يعمل Dueli؟","أنشئ منافستك","اختر القسم والمجال، ضع قوانين المنافسة الخاصة بك","ادعُ منافساً","ابحث عن المتنافسين في مجالك وأرسل دعوة، أو انتظر من يقبل تحديك","تنافس مباشرة","افتح الكاميرا والصوت، شارك شاشتك، والجمهور يشاهد ويقيّم","اربح من أدائك","حصتك من الأرباح تُحدد بناءً على تقييم الجمهور لأدائك","انضم إلى الثورة","Dueli مشروع مفتوح المصدر يحتاج إلى دعمك<br>سواء كنت مطوراً، داعماً مادياً، أو مجرد مؤمن بالفكرة","ساهم في التطوير","تبرع للمشروع","© 2024 Dueli - منصة التنافس الحضاري | مفتوحة المصدر | غير ربحية","نسبة الإدارة: 20% | نسبة المتنافسين: 80%"],en:["The Civilized Competition Platform","Turn your passion into competition, transform conflicts into dialogue<br>An open-source platform uniting the world through constructive competition","Support the Project","How It Works?","Why Dueli?","Connect Through Competition","Not through social circles, but through fair competition in fields you love","Earn From Your Talent","80% of ad revenue distributed to competitors based on audience ratings","Global & Open","Open-source platform, multilingual, operating in all countries","Live Streaming & Recording","Live competitions with camera, audio, and screen sharing, with saved recordings","Audience Rating","Registered viewers rate, comment, and support competitors","No Restrictions","You set the competition rules, no TV channel restrictions","Competition Categories","💬 Dialogue Section","Dialogues on religions, sects, political ideologies, economic systems, current issues, and other disputes","🔬 Science Section","Discussing scientific theories, public participation in science, opportunity for unknown scientists","🎭 Talent Section","Physical, vocal, psychological, and athletic talents - opportunity for every talented person to be seen","How Does Dueli Work?","Create Your Competition","Choose the section and field, set your competition rules","Invite a Competitor","Search for competitors in your field and send an invitation, or wait for someone to accept your challenge","Compete Live","Open your camera and audio, share your screen, and the audience watches and rates","Earn From Your Performance","Your share of profits is determined by the audience's rating of your performance","Join the Revolution","Dueli is an open-source project that needs your support<br>Whether you're a developer, financial supporter, or just believe in the idea","Contribute to Development","Donate to the Project","© 2024 Dueli - The Civilized Competition Platform | Open Source | Non-Profit","Management Share: 20% | Competitors Share: 80%"]};
+        
+        document.querySelectorAll('.lang-btn').forEach(b=>b.onclick=()=>{
+            const lang=b.dataset.lang;
+            document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));
+            b.classList.add('active');
+            document.documentElement.setAttribute('lang',lang);
+            document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+            for(let i=1;i<=39;i++)document.getElementById('t'+i).innerHTML=l[lang][i-1];
+        });
+    </script>
+</body>
+</html>
